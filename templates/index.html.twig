@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+   <script language = "javascript" src = "https://code.jquery.com/jquery-2.2.4.min.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+   <style>
+      #simpleform {
+         width:600px;
+         border:2px solid grey;
+         padding:14px;
+      }
+      #simpleform label {
+         font-size:20px;
+         float:left;
+         width:300px;
+         text-align:center;
+         display:block;
+      }
+      #simpleform input {
+         border:1px solid grey;
+         font-family:verdana;
+         font-size:14px;
+         color:grey;
+         height:24px;
+         width:250px;
+         align:center;
+         margin: 0 0 20px 10px;
+      }
+      #simpleform button {
+         clear:both;
+         margin-left:250px;
+         background:grey;
+         color:#FFFFFF;
+         border:solid 1px #666666;
+         font-size:16px;
+      }
+   </style>
+{% endblock %}
+
+{% block body %}
+    <h2>Upload file for parsing</h2>
+
+    <form action="{{ path('parse') }}" method="post" enctype="multipart/form-data" id="simpleform">
+        <div>
+            <label for="fileToParse">File to upload:</label>
+            <input type="file" name="fileToParse" id="fileToParse" required=true>
+        </div>
+
+        <button type="submit">Send</button>
+    </form>
+
+{% endblock %}

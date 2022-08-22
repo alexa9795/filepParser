@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parsed Content{% endblock %}
+
+{% block stylesheets %}
+   <style>
+      body {
+         width:900px;
+         padding:14px;
+      }
+      h2 {
+        text-align: center;
+      }
+      p {
+        font-size: 12px;
+        font-family: verdana;
+      }
+      p.label {
+        font-weight: bold;
+      }
+      table#content {
+         width:500px;
+         margin-left: auto;
+         margin-right: auto;
+         padding: 10px;
+         float:left;
+         border:solid 1px #666666;
+         border-collapse: collapse;
+      }
+      table td {
+         padding: 0.2rem;
+         border: 1px solid;
+      }
+      table th {
+          padding: 0.2rem;
+          border: 1px solid;
+      }
+   </style>
+{% endblock %}
+
+{% block body %}
+    <h2>Let's test file parsing</h2>
+    <div>
+        <p class="label">The original file content:</p>
+        <p>{{originalText}}</p>
+    </div>
+
+    <div>
+          <p class="label">Parsed content:</p>
+          <p>
+             <table id="content">
+                    {% set counter = 1 %}
+                    {% for word, occurrences in parsedContent %}
+                        <tr>
+                            <td>{{counter}}</td>
+                            <td>{{word}}</td>
+                            <td>{{occurrences}}</td>
+                        </tr>
+                        {% set counter = counter + 1 %}
+                    {% endfor %}
+                </table>
+          </p>
+    </div>
+{% endblock %}
