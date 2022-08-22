@@ -4,7 +4,7 @@ Instal dependencies: composer install
 
 Start a local symfony session: symfony server:start
 
-Access http://localhost:8000/. This will render a form for uploading the text file for parsing. 
+Access http://localhost:8000/. This will render a form for uploading the text file for parsing. Uploaded file should be plain text (.txt)
 
 In order to be able to return requiered output some processing has to be done. We need to do some natural language processing (NLP) in our application and recognize each sentence. There is something called OpenNLP, it's a JAVA-based NLP parser tool. Or Stanford NLP parser in Ruby.
 In this case, regex expression are used in order to split text into sentences.
